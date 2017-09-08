@@ -1,0 +1,54 @@
+<div class="alert alert-success" ng-show="Success_Msg">
+  <strong><span class="fa fa-check" aria-hidden="true"></span>{{msg}}</strong>
+</div>
+<table datatable="ng" class="row-border hover">
+	<thead>
+		<tr>
+			<th>Training Name</th>
+			<th>Courses</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th>Edit/Remove</th>
+			<th style="display: none;"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="tableData in tabelsData" width="50%">
+			<!-- <td>{{value.trainingID}}</td> -->
+			<td>
+			
+				<div ng-hide="editingData[tableData.trainingID]">{{tableData.trainingName}}</div>
+				<div ng-show="editingData[tableData.trainingID]">
+					<input type="text" ng-model="tableData.trainingName" />
+				</div>
+			</td>
+
+			<!-- <td>{{tableData.trainingName}}</td> -->
+			 <td>
+                                <div ng-hide="editingData[tableData.trainingID]">{{tableData.courses}}</div>
+                                <div ng-show="editingData[tableData.trainingID]"><input type="text" ng-model="tableData.courses" /></div>
+                            </td>
+			<!-- <td>{{tableData.startDate}}</td> -->
+			<td>
+                                <div ng-hide="editingData[tableData.trainingID]">{{tableData.startDate}}</div>
+                                <div ng-show="editingData[tableData.trainingID]"><input type="text" ng-model="tableData.startDate" /></div>
+                            </td>
+              <td>
+                                <div ng-hide="editingData[tableData.trainingID]">{{tableData.endDate}}</div>
+                                <div ng-show="editingData[tableData.trainingID]"><input type="text" ng-model="tableData.endDate" /></div>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary btn-md" ng-hide="editingData[tableData.trainingID]" ng-click="modify(tableData)"><span class="fa fa-pencil"></span></button>
+                                <button class="btn btn-success btn-md" ng-show="editingData[tableData.trainingID]" ng-click="update(tableData)"><span class="fa fa-pencil"></span></button>
+								<button class="btn btn-success btn-md" data-toggle="confirmation" ng-hide="editingData[tableData.trainingID]" ng-click="remove(tableData)"><span class="fa fa-trash"></span></button>                               
+                            </td>
+                          <td style="display: none;">
+                                <div ng-hide="editingData[tableData.id]">{{tableData.address}}</div>
+                                <div ng-show="editingData[tableData.trainingID]">
+                                    <input type="hidden" ng-model="tableData.trainingID">
+                                </div>
+                            </td>                
+		</tr>
+	</tbody>
+</table>
+

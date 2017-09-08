@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>TEKSystems Our people make IT possible </title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="./assets/css/vendor.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/flat-admin.css">
+
+  <!-- Theme -->
+  <link rel="stylesheet" type="text/css" href="./assets/css/theme/blue-sky.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/theme/blue.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/theme/red.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/theme/yellow.css">
+
+  
+</head>
+<body ng-app="tekapp1">
+  <div class="app app-default">
+
+<aside class="app-sidebar" id="sidebar">
+  <div class="sidebar-header" align="center">
+  <br>
+    <a class="btn btn-info btn-sm" href="#profile"><span class="highlight">User</span></a>
+    <button type="button" class="sidebar-toggle">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="sidebar-menu">
+    <ul class="sidebar-nav">
+      <li class="active">
+        <a href="#profile">
+          <div class="icon">
+            <i class="fa fa-tasks" aria-hidden="true"></i>
+          </div>
+          <div class="title">Dashboard</div>
+        </a>
+      </li>
+     <li class="@@menu.messaging">
+        <a href="#profile">
+          <div class="icon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+          <div class="title">My Profile</div>
+        </a>
+      </li>
+	  <li class="@@menu.messaging">
+        <a href="#Myallocation">
+          <div class="icon">
+            <i class="fa fa-cube" aria-hidden="true"></i>
+          </div>
+          <div class="title">My Allocations</div>
+        </a>
+      </li>
+	  <li class="@@menu.messaging">
+        <a href="#updateProfile">
+          <div class="icon">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </div>
+          <div class="title">Update Profile</div>
+        </a>
+      </li>
+	  <li class="@@menu.messaging">
+        <a href="#">
+          <div class="icon">
+            <i class="fa fa-book" aria-hidden="true"></i>
+          </div>
+          <div class="title">My Skills</div>
+        </a>
+      </li>
+    <!--<li class="dropdown ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <div class="icon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+          <div class="title">Profile</div>
+        </a>
+        <div class="dropdown-menu">
+          <ul>
+            <li class="section"><i class="fa fa-user" aria-hidden="true"></i> Profile</li>
+            <li><a href="#">My Profile</a></li>
+            <li><a href="#">My Allocations</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <div class="icon">
+            <i class="fa fa-file-o" aria-hidden="true"></i>
+          </div>
+          <div class="title">Add</div>
+        </a>
+        <div class="dropdown-menu">
+          <ul>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Add </li>
+            <li><a href="#">Add Project</a></li>
+            <li><a href="#">Add Employee</a></li>
+            <li><a href="#">Remove Employee</a></li>
+            <li class="line"></li>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Landing</li>
+           
+            <li><a href="#">Register</a></li>
+           
+          </ul>
+        </div>
+      </li>
+	  <li class="@@menu.messaging">
+        <a href="#">
+          <div class="icon">
+            <i class="fa fa-cube" aria-hidden="true"></i>
+          </div>
+          <div class="title">Employee Asset Contribution</div>
+        </a>
+      </li>
+	  <li class="@@menu.messaging">
+        <a href="#">
+          <div class="icon">
+            <i class="fa fa-book" aria-hidden="true"></i>
+          </div>
+          <div class="title">Skill Matrix</div>
+        </a>
+      </li>
+	  <li class="@@menu.messaging">
+        <a href="#">
+          <div class="icon">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div>
+          <div class="title">Employee Search</div>
+        </a>
+      </li>-->
+    </ul>
+  </div>
+  <div class="sidebar-footer">
+    <ul class="menu">
+      <li>
+        <a href="/" class="dropdown-toggle" data-toggle="dropdown">
+          <i class="fa fa-cogs" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li><a href="#"><span class="flag-icon flag-icon-th flag-icon-squared"></span></a></li>
+    </ul>
+  </div>
+</aside>
+
+<script type="text/ng-template" id="sidebar-dropdown.tpl.html">
+  <div class="dropdown-background">
+    <div class="bg"></div>
+  </div>
+  <div class="dropdown-container">
+    {{list}}
+  </div>
+</script>
+<div class="app-container">
+
+  <nav class="navbar navbar-default" id="navbar">
+  <div class="container-fluid">
+    <div class="navbar-collapse collapse in">
+      <ul class="nav navbar-nav navbar-mobile">
+        <li>
+          <button type="button" class="sidebar-toggle">
+            <i class="fa fa-bars"></i>
+          </button>
+        </li>
+        <li class="logo">
+          <a class="navbar-brand" href="#"><span class="highlight">Flat v3</span> Admin</a>
+        </li>
+        <li>
+          <button type="button" class="navbar-toggle">
+            <img class="profile-img" src="./assets/images/profile.png">
+          </button>
+        </li>
+      </ul>
+      
+	 
+	  <img src="./assets/images/Teklogo1.png" width="25%"/>
+      <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown profile">
+          <a href="/html/pages/profile.html" class="dropdown-toggle"  data-toggle="dropdown">
+            <img class="profile-img" src="./assets/images/profile.png">
+
+            <div class="title">Profile</div>
+          </a>
+          <div class="dropdown-menu">
+            <div class="profile-info" ng-controller="sesionCtrl">
+              <h4 class="username">{{logname}}</h4>
+            </div>
+            <ul class="action">
+              <li>
+                <a href="#">
+                  Profile
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Setting
+                </a>
+              </li>
+              <li>
+                <a href="login.html">
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- <div class="btn-floating" id="help-actions">
+  <div class="btn-bg"></div>
+  <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
+    <i class="icon fa fa-plus"></i>
+    <span class="help-text">Shortcut</span>
+  </button>
+  <div class="toggle-content">
+    <ul class="actions">
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="#">About us</a></li>
+      <li><a href="#">FAQ</a></li>
+    </ul>
+  </div>
+</div> -->
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="card card-banner card-chart card-green no-br">
+      <div class="card-header">
+        <div class="card-title">
+       <div class="title">Employee Details</div>
+        </div>
+       
+      </div>
+     <!-- <div class="card-body">
+        <div class="ct-chart-sale"></div>
+      </div>-->
+    </div>
+  </div>
+</div>
+<!--<div class="row">
+  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+      <a class="card card-banner card-green-light">
+  <div class="card-body">
+    <i class="icon fa fa-shopping-basket fa-4x"></i>
+    <div class="content">
+      <div class="title">Sale Today</div>
+      <div class="value"><span class="sign">$</span>420</div>
+    </div>
+  </div>
+</a>
+
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+      <a class="card card-banner card-blue-light">
+  <div class="card-body">
+    <i class="icon fa fa-thumbs-o-up fa-4x"></i>
+    <div class="content">
+      <div class="title">Page Likes</div>
+      <div class="value"><span class="sign"></span>2453</div>
+    </div>
+  </div>
+</a>
+
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+      <a class="card card-banner card-yellow-light">
+  <div class="card-body">
+    <i class="icon fa fa-user-plus fa-4x"></i>
+    <div class="content">
+      <div class="title">New Registration</div>
+      <div class="value"><span class="sign"></span>50</div>
+    </div>
+  </div>
+</a>
+
+  </div>
+</div> -->
+
+<div class="row">
+  <div class="col-lg-15 col-md-17 col-sm-12 col-xs-12" ng-controller="myCtrllr" ng-show="myValue">
+    <div class="card card-mini">
+     
+      <div class="card-body no-padding table-responsive">
+        <table class="table card-table">
+          <thead>
+            <tr>
+              <th>Employee Name</th>
+              <th class="right">Experience</th>
+              <th>Skills</th>
+			  <th>Current Project</th>
+			  <th>Mobile</th>
+			  <th>Email</th>
+			  <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hari</td>
+              <td class="right">10</td>
+			  <td>.Net,Webservices,Webmethods</td>
+			  <td>Tele2</td>
+			  <td>829766600</td>
+			  <td>hari@teksystems.com</td>
+              <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>In Project</span></span></td>
+            </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<div class="ng-view"></div>
+    <!--<footer class="app-footer"> 
+  <div class="row
+    <div class="col-xs-12">
+      <div class="footer-copyright">
+        Copyright &copy; 2017 TekSystems.
+      </div>
+    </div>
+  </div>
+</footer>-->
+</div>
+
+  </div>
+  
+  <!--<div>
+	<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				
+				<img src="images/Teklgo.png" width="35%"/>
+				<br><br>
+
+				<p class="footer-company-name">TekSystems &copy; 2017</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>Block C Cyber Gateway,Hitech City, Madhapur</span> Hyderabad, Telangana</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>040 3011 3333</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">fcs_info@teksystems.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					From FORTUNE Magazine, March 15, 2017 © 2017 Time Inc. FORTUNE and FORTUNE 100 Best Companies to Work For are registered trademarks of Time Inc.
+				</p>
+
+				<div class="footer-icons">
+
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-github"></i></a>
+
+				</div>
+
+			</div>
+
+		</footer>
+		</div>
+  
+  -->
+  <script type="text/javascript" src="./assets/js/vendor.js"></script>
+  <script type="text/javascript" src="./assets/js/app.js"></script>
+ <script type="text/javascript" src="./js/angular.min.js"></script>	
+ <script type="text/javascript" src="./js/sample2.js"></script>
+<script type="text/javascript" src="./js/angular-route.js"></script> 
+<!-- <script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>  -->
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+<!-- <script type="text/javascript" src="./js/jquery.dataTables.min.js"></script> -->
+<script type="text/javascript" src="./js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/angular-sanitize.min.js"></script>
+ <script type="text/javascript" src="./js/ng-csv.js"></script>
+
+ <!-- <script type="text/javascript" src="./js/jquery.dataTables.min.js"></script> -->
+ 
+ <script type="text/javascript" src="./js/jquery-ui.js"></script>
+<script type="text/javascript" src="./js/ng-table.min.js"></script>
+<script src="./datatable/angular-datatables.directive.js"></script>
+<script src="./datatable/angular-datatables.instances.js"></script>
+<script src="./datatable/angular-datatables.util.js"></script>
+<script src="./datatable/angular-datatables.renderer.js"></script>
+<script src="./datatable/angular-datatables.factory.js"></script>
+<script src="./datatable/angular-datatables.options.js"></script>
+<script src="./datatable/angular-datatables.js"></script>
+
+
+</body>
+</html>

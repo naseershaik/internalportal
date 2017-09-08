@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="angularDatatableModule" ng-controller="myctrl">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="./css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="./css/jquery-ui.css">
+ <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> -->
+<script type="text/javascript" src="./js/angular.min.js"></script>		
+
+<script type="text/javascript" src="./js/jquery.dataTables.min.js"></script>
+<script src="./datatable/angular-datatables.directive.js"></script>
+<script src="./datatable/angular-datatables.instances.js"></script>
+<script src="./datatable/angular-datatables.util.js"></script>
+<script src="./datatable/angular-datatables.renderer.js"></script>
+<script src="./datatable/angular-datatables.factory.js"></script>
+<script src="./datatable/angular-datatables.options.js"></script>
+<script src="./datatable/angular-datatables.js"></script>
+<script type="text/javascript">
+
+var app=angular.module('angularDatatableModule', ['datatables']); 
+app.controller('myctrl', function($scope,$http) {
+	
+	$http({
+		method: 'GET',
+		url: 'rest/myrest/updateTPlan'
+	}).success(function(data){
+		$scope.data=data;
+		/*$scope.tableParams = new NgTableParams({}, { dataset: $rootScope.tabelsData});*/
+	}).error(function(){
+		alert("error");
+	});	
+	
+/* 	$scope.data=[{'id':'1','firstName':'John','lastName':'Doe'},{'id':'2','firstName':'ABRAHAM','lastName':'Linkan'},{'id':'3','firstName':'David','lastName':'Warner'}];
+ */});
+
+</script>
+
+</head>
+<body>
+    
+    <table datatable="ng" class="row-border hover">
+<thead>
+<tr>
+<th>ID</th>
+<th>First name</th>
+<th>Last name</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="value in data">
+<td>{{value.trainingID}}</td>
+<td>{{value.trainingName}}</td>
+<td>{{value.lastName}}</td>
+</tr>
+</tbody>
+</table>
+   
+ </body>
+</html>

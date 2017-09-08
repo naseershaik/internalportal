@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./css/ng-table.min.css">
+ <link rel="stylesheet" type="text/css" href="./css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="./css/jquery-ui.css">
+ <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+ <script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/angular.min.js"></script>	
+<script type="text/javascript" src="./js/ng-table.min.js"></script>
+<script type="text/javascript" src="./js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="./js/dataTables.bootstrap.min.js"></script>
+
+ <script type="text/javascript" src="./js/jquery.dataTables.js"></script>
+
+
+<script>
+var app=angular.module("myApp", ["ngTable"]);
+
+app.controller('myctr', function($scope,$http,NgTableParams) {
+
+	/* var data = [{name: "A", age: 20},
+	            {name: "B", age: 21},
+	            {name: "c", age: 22},
+	            {name: "D", age: 23},
+	            {name: "E", age: 24},
+	            {name: "F", age: 25},
+	            {name: "G", age: 26},
+	            {name: "H", age: 27},
+	            {name: "I", age: 28},
+	            {name: "J", age: 29},
+	            {name: "K", age: 30},
+	            {name: "L", age: 31},
+	            {name: "M", age: 32},
+	            ];
+	
+ */	
+ $http({
+		method: 'GET',
+		url: 'rest/myrest/updateTPlan'
+	}).success(function(data){
+		$scope.data=data;
+		var data=data;
+		$scope.tableParams = new NgTableParams({}, { dataset: data});
+	}).error(function(){
+		alert("error");
+	});	
+
+ 
+ /* $scope.tableParams = new NgTableParams({}, { dataset: data}); */
+});
+ 
+/*  app.controller('myctr', function($scope,$rootScope,$http,NgTableParams) {
+		
+		$rootScope.Success_Msg = false;
+		$rootScope.myValue = false;
+		$http({
+			method: 'GET',
+			url: 'rest/myrest/updateTPlan'
+		}).success(function(data){
+			$rootScope.data=data;
+			$rootScope.count=$rootScope.tabelsData.length;
+			$scope.tableParams = new NgTableParams({}, { dataset: data});
+		}).error(function(){
+			alert("error");
+		});	
+
+ */ 
+ 
+</script>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="myApp" ng-controller="myctr">
+<table ng-table="tableParams" class="table" show-filter="true">
+    <tr ng-repeat="user in data">
+        <td>
+            {{user.trainingName}}</td>
+        <td>
+            {{user.trainingID}}</td>
+    </tr>
+</table>
+
+
+</body>
+</html>

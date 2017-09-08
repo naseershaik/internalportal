@@ -1,0 +1,145 @@
+<div class="alert alert-success" ng-show="Successmsg">
+	<strong><span class="fa fa-check" aria-hidden="true"></span>{{msg}}</strong>
+</div>
+<div align="right">
+	<button class="btn btn-primary btn-md" data-toggle="modal"
+		data-target="#myModalHorizontal">Add Allocation</button>
+</div>
+<div>
+	<!--  <button class="btn btn-lg btn-success" ng-click="open()">Add Allocation</button> -->
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModalHorizontal" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-show="modalHide">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span> <span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Add Allocation</h4>
+				</div>
+
+				<!-- Modal Body -->
+				<div class="modal-body">
+
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="inputEmail3">Employee
+								Select</label>
+							<div class="col-sm-10">
+								<input type="hidden" ng-model="addEmpID"/>
+								<input type="text" class="form-control" id="inputEmp"
+									placeholder="Enter Employee Name" ng-model="searchText"
+									ng-keypress="show()" />
+								<div>
+									<ul style="background-color: rgb(211, 211, 211);"
+										ng-repeat="employee in empDetailsList | filter:searchText"
+										ng-show="view">
+										<li ng-click="display(employee)">{{employee.empName}}</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="inputPassword3">Project
+								Select</label>
+							<div class="col-sm-10">
+								<input type="hidden" ng-model="projectID"/>
+								<input type="text" class="form-control" id="inputProject"
+									placeholder="Select Project" ng-model="searchProjText"
+									ng-keypress="showProj()" ng-click="hideSarchlist()" />
+								<div>
+									<span
+										ng-repeat="employee in projDetailsList | filter:searchProjText"
+										ng-show="view1">
+										<p ng-click="display1(employee)">{{employee.projectName}}</p>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="inputPassword3">StartDate</label>
+							<div class="col-sm-10">
+								<input type="text" id="start_date" name="start_date"
+									class="form-control datepicker" placeholder="Start Date"
+									ng-model="startDate" ng-click="hideProjList()">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="inputPassword3">EndDate</label>
+							<div class="col-sm-10">
+								<input type="text" id="end_date" name="end_date"
+									class="form-control datepicker" placeholder="End Date"
+									ng-model="endDate">
+							</div>
+						</div>
+					</form>
+
+
+				</div>
+
+				<!-- Modal Footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						Close</button>
+					<button type="button" class="btn btn-primary" ng-click="addAllocations()">ADD</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- MODAL END -->
+
+
+</div>
+<!--  <div class="card-body no-padding table-responsive"> -->
+  <table datatable="ng" class="row-border hover">
+	<thead>
+		<tr>
+			<th>Employee Name</th>
+			<th>Experience</th>
+			<th>Skills</th>
+			<th>Project Name</th>
+			<th>Customer</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th>Edit</th>
+		<!-- 	<th style="display: none;"></th> -->
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="Employee in allocationList" width="50%">
+			<td>{{Employee.empFirstName}}</td>
+			<td>{{Employee.totalExperience}}</td>
+			<td>{{Employee.primarySkills}}</td>
+			<td>{{Employee.projectName}}</td>
+			<td>{{Employee.customer}}</td>
+			<td>
+				<div ng-hide="editingData[$index]">{{Employee.startDate}}</div>
+				<div ng-show="editingData[$index]">
+					<input type="text" ng-model="Employee.startDate" />
+				</div>
+			</td>
+			<td>
+				<div ng-hide="editingData[$index]">{{Employee.endDate}}</div>
+				<div ng-show="editingData[$index]">
+					<input type="text" ng-model="Employee.endDate" />
+				</div>
+			</td>
+
+
+			<td>
+				<button class="btn btn-primary btn-md"
+					ng-hide="editingData[$index]" ng-click="modify(Employee,$index)">
+					<span class="fa fa-pencil"></span>
+				</button>
+				<button class="btn btn-success btn-md"
+					ng-show="editingData[$index]" ng-click="update(Employee,$index)">
+					<span class="fa fa-pencil"></span>
+				</button>
+			</td>
+	</tbody>
+</table>

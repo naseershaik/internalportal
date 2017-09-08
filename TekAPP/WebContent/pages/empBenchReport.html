@@ -1,0 +1,31 @@
+<!-- <div class="row"> -->
+ <!--  <div class="col-lg-15 col-md-17 col-sm-12 col-xs-12" ng-show="myValue">-->
+   <!--  <div class="card card-mini">  -->
+     
+     <!--  <div class="card-body no-padding table-responsive"> -->
+        <table datatable="ng" class="row-border hover">
+          <thead>
+            <tr>
+              <th>Employee Name</th>
+              <th>Experience</th>
+              <th>Primary Skills</th>
+			  <th>Secondary Skills</th>
+			  <th>Mobile</th>
+			  <th>Email</th>
+			 <!--  <th style="display: none;"></th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="Employee in benchList" width="50%">
+            	<td>{{Employee.empFirstName}}</td>
+            	<td>{{Employee.totalExperience}}</td>
+            	<td>{{Employee.primarySkills}}</td>
+            	<td>{{Employee.secondaySkills}}</td>
+            	<td>{{Employee.mobileNo}}</td>
+            	<td>{{Employee.email}}</td>
+            </tbody>
+        </table>
+     <!--  </div> -->
+    <!--  </div> -->
+    <!--</div> -->
+ <!--  </div> -->

@@ -1,0 +1,70 @@
+<div class="alert alert-success" ng-show="showMsg">
+  <strong><span class="fa fa-check" aria-hidden="true"></span>{{msg}}</strong>
+</div>
+     
+     <div>  
+   <!-- <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%"> -->
+          <table datatable="ng" class="row-border hover">
+          <thead>
+            <tr>
+              <th>Employee ID</th>
+              <th>FirstName</th>
+              <th>LastName</th>
+			  <th>Email</th>
+			  <th>Total Exp</th>
+			  <th>Primary Skills</th>
+			  <th>Secondary Skills</th>
+			  <th>Edit/Remove</th>
+			<!--   <th style="display: none;"></th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="Employee in list" width="50%">
+              <td>
+              	<div>{{Employee.empID}}</div>
+				<!-- <div ng-show="editingData[Employee.empID]">
+					<input size="7" type="text" ng-model="Employee.empID" />
+				</div> -->
+              </td>
+            <!--  <td>{{Employee.empFirstName}}</td>  -->
+				<td>
+                    <div>{{Employee.empFirstName}}</div>
+                    <!-- <div ng-show="editingData[Employee.empID]"><input size="15" type="text" ng-model="Employee.empFirstName" /></div> -->
+                </td>
+			
+			  <!-- <td>{{Employee.empLastName}}</td> -->
+			  <td>
+                    <div>{{Employee.empLastName}}</div>
+                    <!-- <div ng-show="editingData[Employee.empID]"><input size="15" type="text" ng-model="Employee.empLastName" /></div> -->
+               </td>
+			  <!-- <td>{{Employee.email}}</td> -->
+			  <td>
+                    <div>{{Employee.email}}</div>
+                    <!-- <div ng-show="editingData[Employee.empID]"><input size="16" type="text" ng-model="Employee.email" /></div> -->
+               </td>
+		<!-- 	  <td>{{Employee.totalExperience}}</td> -->
+			  <td>
+                    <div>{{Employee.totalExperience}}</div>
+                    <!-- <div ng-show="editingData[Employee.empID]"><input size="3" type="text" ng-model="Employee.totalExperience" /></div> -->
+               </td>
+			<!--   <td>{{Employee.skillName}}</td> -->
+			  <td>
+                    <div>{{Employee.skillName}}</div>
+                    <!-- <div ng-show="editingData[Employee.empID]"><input size="12" type="text" ng-model="Employee.skillName" /></div> -->
+               </td>
+		<!-- 	  <td>{{Employee.secondaySkills}}</td> -->
+			  <td>
+                    <div ng-hide="editingData[Employee.empID]">{{Employee.secondaySkills}}</div>
+                    <div ng-show="editingData[Employee.empID]"><input size="12" type="text" ng-model="Employee.secondaySkills" /></div>
+               </td>
+			   <td>
+                 <button class="btn btn-primary btn-md" ng-hide="editingData[Employee.empID]" ng-click="modify(Employee)"><span class="fa fa-pencil"></span></button>
+                 <button class="btn btn-success btn-md" ng-show="editingData[Employee.empID]" ng-click="update(Employee)"><span class="fa fa-pencil"></span></button>
+				 <button class="btn btn-success btn-md" data-toggle="confirmation" ng-hide="editingData[Employee.empID]" ng-click="remove(Employee)"><span class="fa fa-trash"></span></button>                               
+               </td>
+            </tr>
+            </tbody>
+        </table>
+ </div> 
+
+

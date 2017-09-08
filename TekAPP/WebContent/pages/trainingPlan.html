@@ -1,0 +1,46 @@
+<div class="container">
+        	<div>
+        		<div class="panel-heading">
+        				<h3><span style="color: green">{{result}}</span></h3>
+			    		<h3 class="panel-title"><strong>Training Plan</strong></h3>
+			 			</div>
+			 			<div class="panel-body">
+			    		<form role="form">
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-3">
+			    					<div class="form-group">
+			                <input type="text" id="training_name" name="training_name" class="form-control input-sm" placeholder="Training Name" ng-model="trngName">
+			    					</div>
+			    				</div>
+			    				<div class="col-xs-6 col-sm-6 col-md-3">
+			    					<div class="form-group">
+			    						<input type="text" id="courses_" name="Courses_offered" class="form-control input-sm" placeholder="Courses Offered" ng-model="courses">
+			    					</div>
+			    				</div>
+			    			</div>
+
+			    			<!-- <div class="form-group">
+			    				<input type="date" id="start_date" name="start_date"class="form-control">
+			    			</div> -->
+
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-3">
+			    					<div class="form-group">
+			    						<input type="text" id="start_date" name="start_date" class="form-control datepicker" placeholder="Start Date" ng-model="startDate">
+			    						
+			    					</div>
+			    				</div>
+			    				<div class="col-xs-6 col-sm-6 col-md-3">
+			    					<div class="form-group">
+			    						<input type="text" id="end_date" name="end_date" class="form-control datepicker" placeholder="End Date" ng-model="endDate">
+			    					</div>
+			    				</div>
+			    			</div>
+			    			
+			    			<input type="submit" value="Submit" class="btn btn-info btn-lg" ng-click="trainingPlan()">
+			    		
+			    		</form>
+			    	</div>
+	    		</div>
+    		</div>
+    	

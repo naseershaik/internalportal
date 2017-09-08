@@ -1,0 +1,31 @@
+<div class="alert alert-success" ng-show="Success_Msg">
+  <strong><span class="fa fa-check" aria-hidden="true"></span>{{result}}</strong>
+</div>
+<div class="col-md-5 col-md-offset-2">
+    		<div class="panel panel-default">
+    		<div class="panel-heading">
+        				<!-- <h3><span style="color: green">{{result}}</span></h3> -->
+			    		<h3 class="panel-title"><strong>Add Project</strong></h3>
+			 			</div>
+			  	<div class="panel-body">
+			    	<form accept-charset="UTF-8" role="form">
+                    <fieldset>
+			    	  	<div class="form-group">
+			    		    <input class="form-control" id="projectname" placeholder="Project Name" name="projectname" type="text" ng-model="projName">
+			    		</div>
+			    		<div class="form-group">
+			    			<input type="text" id="start_date" name="start_date" class="form-control datepicker" placeholder="Start Date" ng-model="startDate">
+			    		</div>
+						<div class="form-group">
+			    			<input type="text" id="end_date" name="end_date" class="form-control datepicker" placeholder="End Date" ng-model="endDate">
+			    		</div>
+						<div class="form-group">
+			    			<input class="form-control" id="customer" placeholder="Customer" name="customer" type="text" ng-model="customer">
+			    		</div>
+			    		
+			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Add" ng-click="addProject()">
+			    	</fieldset>
+			      	</form>
+			    </div>
+			</div>
+		</div>
